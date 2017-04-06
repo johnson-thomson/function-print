@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Addition</title>
+<script>
+	var counter = 1;
+	function myFunction() {
+
+		var node = document.getElementById("form");
+		while (node.firstChild) {
+			counter = 1;
+			node.removeChild(node.firstChild);
+		}
+
+		var numberOfElements = document.getElementById("arg").value;
+
+		for (var i = 0; i < numberOfElements; i++) {
+
+			var span = document.createElement("span");
+			span.innerHTML = "number" + counter + ": ";
+			form.appendChild(span);
+
+			var x = document.createElement("INPUT");
+			x.setAttribute("type", "number");
+			x.setAttribute("name", "number" + counter);
+			x.setAttribute("id", "number" + counter)
+			x.setAttribute("required", "required");
+			document.getElementById("form").appendChild(x);
+
+			var br = document.createElement("br");
+			form.appendChild(br);
+			counter++;
+
+		}
+
+		var submit = document.createElement("INPUT");
+		submit.setAttribute("type", "submit");
+		submit.setAttribute("value", "Submit");
+		submit.setAttribute("onsubmit", "return validate()");
+		form.appendChild(submit);
+	}
+</script>
+</head>
+
+<body>
+	Select the language:
+	<select>
+		<option value="Java">Java</option>
+		<option value="Python">Python</option>
+		<option value="Ruby">Ruby</option>
+	</select>
+	<br>Number of Input fields:
+	<input type="number" value="numberOfInputFields" id="arg" />
+	<button value="submit" onclick="myFunction()" id="numberOfElements">Submit</button>
+	<form method="post" id="form" action="code"></form>
+</body>
+
+</html>
